@@ -7,6 +7,7 @@ pipeline{
         metadata:
           name: mypod
         spec:
+        serviceAccount: jenkins-admin-sa
           containers:
           - name: build-agent
             image: careem785/jenkins-build-agent:2.0
