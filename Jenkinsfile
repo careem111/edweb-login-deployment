@@ -18,14 +18,7 @@ pipeline{
       '''
         }
     }
-    stages {
-      stage('Checkout SCM') {
-    	  steps{
-	        container('build-agent'){
-            sh 'mvn clean deploy -s settings.xml'
-            }
-	        }
-        }      
+    stages {    
       stage('Helm Chart'){
         steps{
           container('build-agent'){
