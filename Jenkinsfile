@@ -38,8 +38,8 @@ pipeline{
                 withCredentials([usernamePassword(credentialsId: 'jfrog', usernameVariable: 'username', passwordVariable: 'password')]) {
                       sh '/usr/local/bin/helm repo add dptweb-helm-local  https://krmkube2.jfrog.io/artifactory/edweb-helm-local --username $username --password $password'
                       sh "/usr/local/bin/helm repo update"
-                      sh "/usr/local/bin/helm install dptweb-dev --namespace dev -f values.yaml ."
-                      sh "/usr/local/bin/helm list -a --namespace dev"
+                      sh "/usr/local/bin/helm install dptweb-qa --namespace qa -f values.yaml ."
+                      sh "/usr/local/bin/helm list -a --namespace qa"
                   }
                 }
              }
