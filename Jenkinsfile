@@ -6,21 +6,15 @@ pipeline{
         kind: Pod
         metadata:
           name: mypod
+          namespace: default
         spec:
-          serviceAccount: default/jenkins-agent-sa
+          serviceAccount: jenkins-agent-sa
           containers:
           - name: build-agent
             image: careem785/jenkins-build-agent:2.0
             command: 
              - cat
             tty: true
-            volumeMounts:
-            - name: dockersock
-              mountPath: /var/run/docker.sock
-          volumes:
-          - name: dockersock
-            hostPath:
-              path: /var/run/docker.sock  
       '''
         }
     }
